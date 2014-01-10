@@ -1,0 +1,59 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "<enter><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
+        "/usr/bin/curl -O http://{{.HTTPIP}}:{{.HTTPPort}}/install.sh<enter><wait5>",
+        "/usr/bin/curl -O http://{{.HTTPIP}}:{{.HTTPPort}}/config.sh<enter><wait5>",
+        "/usr/bin/bash ./install.sh<enter>"
+      ],
+      "boot_wait": "5s",
+      "disk_size": 20480,
+      "guest_additions_mode": "disable",
+      "guest_os_type": "ArchLinux",
+      "hard_drive_interface": "sata",
+      "http_directory": ".",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_url": "{{user `iso_url`}}",
+      "shutdown_command": "sudo shutdown now",
+      "ssh_password": "vagrant",
+      "ssh_username": "vagrant",
+      "ssh_wait_timeout": "30m",
+      "type": "virtualbox-iso",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "768"
+        ]
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "output": "arch32X.box",
+      "type": "vagrant"
+    }
+  ],
+  "provisioners": [
+    {
+      "script": "yaourt.sh",
+      "type": "shell"
+    },
+    {
+      "script": "env.sh",
+      "type": "shell"
+    },
+    {
+      "script": "xorg.sh",
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "iso_checksum": "31a37cd692eb9d0650e28f223f319cd6a22924ec",
+    "iso_checksum_type": "sha1",
+    "iso_url": "https://mirrors.kernel.org/archlinux/iso/2013.12.01/archlinux-2013.12.01-dual.iso"
+  }
+}
