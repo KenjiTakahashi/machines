@@ -52,8 +52,8 @@
     }
   ],
   "variables": {
-    "iso_checksum": "31a37cd692eb9d0650e28f223f319cd6a22924ec",
+    "iso_checksum": "eb4c971c71b505b5c1be25f1710e6579987fda3b",
     "iso_checksum_type": "sha1",
-    "iso_url": "https://mirrors.kernel.org/archlinux/iso/2013.12.01/archlinux-2013.12.01-dual.iso"
+    "iso_url": "https://mirrors.kernel.org/archlinux/iso/2014.02.01/archlinux-2014.02.01-dual.iso"
   }
 }

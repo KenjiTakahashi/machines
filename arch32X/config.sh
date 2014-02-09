@@ -1,4 +1,4 @@
-FQDN='vagrant-arch32K.vargrantup.com'
+FQDN='vagrant-arch32X.vargrantup.com'
 TIMEZONE='UTC'
 KEYMAP='gb'
 LANGUAGE='en_GB.UTF-8'
